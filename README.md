@@ -9,7 +9,7 @@ https://replit.com/@gabo0802/COP3530-Project-3
 ## Description
 
 ### Problem: 
-[X] This program will solve a lack of entertainment ideas when one is bored. It works by allowing users to generate movie recommendations based on genre and critic rating. It shows the highest rated and lowest rated movies through outputting the top and bottom 10, 50, and 100 movies. You can also sort then output all the available movies, genres, and main actors in alphanumeric order and its reverse if desired.
+* This program will solve a lack of entertainment ideas when one is bored. It works by allowing users to generate movie recommendations based on genre and critic rating. It shows the highest rated and lowest rated movies through outputting the top and bottom 10, 50, and 100 movies. You can also sort then output all the available movies, genres, and main actors in alphanumeric order and its reverse if desired.
 
 ### Motivation: 
 [X] This is a problem because people are always interested in finding something new to watch. People usually want to watch highly rated movies and typically want to avoid watching low rated movies. However, they may also want to watch the worst movie they could think of, and this program takes into account that. The program will create a way to instantly settle on a media to watch, rather than spending hours browsing Netflix.
