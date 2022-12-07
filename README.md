@@ -1,89 +1,36 @@
-# Replit C++ Template for Bridges
+# GitHub Repository for COP3530 Project
 
-This is a Replit IDE template for the Bridges C++ library that you can use to create assignments for your students.
+Made by Vladmir Alekseev, Gabriel Castejon, and Mason Enojo
 
-More information about the Bridges project can be found [here](http://bridgesuncc.github.io/index.html).
-The Bridges C++ library documentation can be found [here](http://bridgesuncc.github.io/doc/cxx-api/current/html/index.html).
+Go to replit repository to run the program and see the full code (this does not include the full BRIDGES library): 
 
-When the Bridges library is updated, this repository should be updated shortly thereafter (if necessary).
+[https://replit.com/@gabo0802/COP3530-Project-3]
 
-### Getting Started
+### Description
 
-1. Use the GitHub import feature to use this repository as a template when creating a new repl
-2. Insert your assignment scaffolding in the [main file](CxxTest.cpp)
-3. (Optional) Remove the [readme](README.md), [license](LICENSE.md), and [library setup](replit-cxx-setup.sh) files
-4. Create a project (assignment) from the repl
-5. Publish to your students
+Problem: 
+■ This program will solve a lack of entertainment ideas when one is bored. It works by allowing users to generate movie recommendations based on genre and critic rating. It shows the highest rated and lowest rated movies through outputting the top and bottom 10, 50, and 100 movies. You can also sort then output all the available movies, genres, and main actors in alphanumeric order and its reverse if desired.
 
-### Building and Running
+Motivation: 
+■ This is a problem because people are always interested in finding something new to watch. People usually want to watch highly rated movies and typically want to avoid watching low rated movies. However, they may also want to watch the worst movie they could think of, and this program takes into account that. The program will create a way to instantly settle on a media to watch, rather than spending hours browsing Netflix.
 
-Just press the "Run" button. It will automatically compile and run the program.
+Features: 
+■ Features we have implemented include the data being sorted by movie title, main actor, rating, or genre with the user ability to output the data in ascending or descending order. This is in the formats of top or bottom 10, 50, or 100. They could also choose which type of sorting algorithm to use and the program outputs the amount of time it took to sort the data using that algorithm. These three types are Merge, Quick, and Radix sorts. The original four options output based on the original, real IMDB dataset while option 5 uses extra randomly generated values to test a 100,000 value data set. This large data set is used purely to compare the sorting algorithms on large sets.
 
-Replit should automatically switch to the Console tab (to the right of the editor tab), but if it does not, you will have to manually do so to access stdin, stdout, and stderr.
+Data: 
+■ The data used for this project is the IMDB movie dataset, with extra data points being randomly generated as there were only around 500 data points in the set. The rest was randomly generated to create a total of 100,000. In the data, it included an actor, a movie, a rating, and genre(s) in each data point. This was stored in a vector of ActorMovieIMDB objects, where each stored a string actor, string movie, float rating, and vector<string> genres.
 
-## Notes/FAQ
+Tools:
+■ The tools used were the C++ programming language along with the Bridges API. The Bridges API was used purely just to access the IMDB data set in our project. This was implemented in Replit and later uploaded to Github.
 
-> Where can I learn more about Replit?
+Algorithms Implemented:
+■ The algorithms used were Radix Sort, Quick Sort, and Merge Sort algorithms to sort the data. Both Quick Sort and Merge Sort are divide and conquer algorithms, where data is broken into sub components and individually sorted then combined to create a final sorted data structure. Radix Sort is a non-comparative sorting algorithm that uses the digits of the largest number to sort all other numbers. Quick and Merge sort could sort both strings and numbers while Radix sort was limited to just numbers in our implementation. As a result we allowed the choice of only quick or merge for title, name, and genre and then an option of quick, merge, or radix for the ratings.
 
-Replit's documentation can be accessed [here](https://docs.replit.com/).
-It has resources for teachers [here](https://docs.replit.com/teams-edu/intro-teams-education).
+Additional Data Structures/Algorithms used:
+■ Additional data structures/algorithms used included vectors to store the ActorMovieIMDB objects and std::reverse to reverse the already sorted data.
 
-The following resources might be helpful as you are getting started with Replit:
+Distribution of Work:
+■ Vladimir Alekseev: Report, Radix Sort, Merge Sort
+■ Gabriel Castejon: Parsing data, Bridges, adjusting the ActorsMovieIMDB.h file to make randomizing and sorting the objects easier
+■ Mason Enojo: Quick Sort, Random ActorMovieIMDB generator to create extra data values to reach 100,000 minimum, Report, Video
 
-* [How to invite students](https://docs.replit.com/teams-edu/inviting-teachers-students#invite-team-members-students)
-* [Turning personal REPLs into assignments](https://docs.replit.com/teams-edu/repls-to-team-projects)
-* [Creating lesson plans](https://docs.replit.com/teams-edu/lesson-authoring)
-* [Using the autograder](https://docs.replit.com/teams-edu/testing-assessments-autograding)
-
-> What is the difference between the Console and Shell tabs in Replit?
-
-In languages with a supported REPL environment (Python, Ruby, etc.), the Console tab is a REPL and also handles stdin/out/err of your application.
-(Not to be confused with a repl, an IDE instance hosted by Replit.
-More information on REPLs can be found [here](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop).)
-
-In languages without a REPL environment (C, C++, etc.) or languages with a REPL environment not supported by Replit (e.g. [Java](https://docs.oracle.com/javase/9/jshell/introduction-jshell.htm)), the Console is a Bash shell you can interact with and where stdin/out/err of your application is handled.
-However, it is not identical in functionality to the Shell tab, as the Shell tab is a terminal emulator while the Console tab is not.
-This difference is not important for many applications, but some, espcially (n)curses-based applications (git, man, vim, etc.) will work as expected in the Shell tab but are unusable in the Console tab.
-
-> There is a new Bridges library available but this repository has not yet been updated. How do I get the latest version?
-
-In the Console or Shell tabs (to the right of the editor tab), execute the following commands:
-
-```sh
-curl -O http://bridgesuncc.github.io/sw/replit-cxx-setup.sh # download latest setup script (overwriting the existing script)
-rm -r curl/ bridges-cxx-*/ # delete existing Bridges library
-sh replit-cxx-setup.sh $(pwd) # run script
-```
-
-After this, you will have to manually re-run any Makefile changes.
-
-See the [Using Bridges C++ with Repl.it](https://bridgesuncc.github.io/bridges_setup_cxx_replit.html) guide if this fails.
-
-> I do not want my assignment to be in a file named `CxxTest.cpp`. What do I do?
-
-1. Rename `CxxTest.cpp` and adjust the class names (if necessary)
-2. Either manually edit the [Makefile](Makefile) and [replit](.replit) file or, in the Console or Shell tabs (to the right of the editor tab), execute the following commands:
-   ```sh
-   sed -i 's/CxxTest.cpp/MyNewFileName.cpp/g' Makefile # update make source file
-   sed -i 's/CxxTest.cpp/MyNewFileName.cpp/g' .replit # update default file for Replit to open on startup
-   ```
-
-> I need to compile multiple files. How do I do that?
-
-Either manually edit the [Makefile](Makefile) or, in the Console or Shell tabs (to the right of the editor tab), execute the following command:
-
-```sh
-sed -i 's/CxxTest.cpp/CxxTest.cpp OtherFile1.cpp OtherFile2.cpp Etc.cpp/g' Makefile # update make source files
-```
-
-> I do not want my executable to be named `CxxTest`. How do I rename it?
-
-Either manually edit the [Makefile](Makefile) or, in the Console or Shell tabs (to the right of the editor tab), execute the following command:
-
-```sh
-sed -i 's/EXE=CxxTest/EXE=MyNewExecutableName/g' Makefile # update make destination file
-```
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
